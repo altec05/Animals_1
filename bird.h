@@ -9,7 +9,7 @@
 struct bird {
     animal *next; // Последующий элемент
     animal *prev; // Предыдущий  элемент
-    enum_animal tr_type; // Тип животного
+    enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
     bool is_migratory; // Перелетная ли птица
 };

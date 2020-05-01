@@ -30,12 +30,12 @@ animal *ReadA(std::ifstream &ifs) {
         case enum_animal::FISH:
             // Считываем рыбу
             ReadF(ifs, (fish*)Read);
-            Read->tr_type = enum_animal::FISH;
+            Read->TYPE = enum_animal::FISH;
             break;
         case enum_animal::BIRD:
             // Считываем птицу
             ReadB(ifs, (bird*)Read);
-            Read->tr_type = enum_animal::BIRD;
+            Read->TYPE = enum_animal::BIRD;
             break;
     }
 
@@ -45,7 +45,7 @@ animal *ReadA(std::ifstream &ifs) {
 void OutA(std::ofstream &ofs, animal *A) {
     ofs << "NAME: " << A->name << std::endl;
     ofs << "ANIMAL: ";
-    switch (A->tr_type) {
+    switch (A->TYPE) {
         case enum_animal::FISH:
             ofs << "FISH\n";
             OutF(ofs, (fish*)A);
