@@ -20,6 +20,7 @@ struct animal {
     std::string name; // Имя животного
 };
 
+int nameLength(animal* an);
 animal* ReadA(std::ifstream&ifs);
 void OutA(std::ofstream& ofs, animal*A);
 
