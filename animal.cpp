@@ -61,3 +61,7 @@ void OutA(std::ofstream &ofs, animal *A) {
 int nameLength(animal*an) {
     return an->name.length();
 }
+
+bool Comparator(animal *f, animal *s) {
+    return nameLength(f) < nameLength(s);
+}

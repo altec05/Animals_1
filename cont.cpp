@@ -5,11 +5,13 @@ void Read(std::ifstream &ifs, cont &q) {
     while(!ifs.eof()) { // Пока есть что считывать
         animal *A = ReadA(ifs); // Функция возвращает считанные данные
         if(A==NULL) return;
-        Add(A, q); // Сохраняем в контейнер
+        node *N = new node;
+        N->data = A;
+        Add(N, q); // Сохраняем в контейнер
     }
 }
 
-void Add(animal *A, cont&q) {
+void Add(node *A, cont&q) {
     q.size++;
     if(q.first == nullptr) { // Если контейнер пуст
         q.first = A;
@@ -30,20 +32,41 @@ void Init(cont &cont) {
 }
 
 void Clear(cont &q) {
-    animal *A = q.first;
+    node *A = q.first;
     for(int i = 0; i < q.size; i++) {
-        animal *deleting = A;
+        node *deleting = A;
         A = A->next;
+        delete deleting->data;
         delete deleting;
     }
     q.size = 0;
 }
 
 void Out(std::ofstream &ofs, cont &q) {
-    animal *A = q.first;
+    node *A = q.first;
     for(int i = 1; i <= q.size; i++) {
         ofs << i << ". ";
-        OutA(ofs, A);
+        OutA(ofs, A->data);
         A = A->next;
     }
+}
+
+void Sort(cont &q) {
+    node *A = q.first;
+    std::cout << "Sorting in progress..." << std::endl;
+    for(int i = 0; i < q.size-1; i++) {
+        node *B = A->next;
+        for(int j = 0; j < q.size-1-i; j++) {
+            std::cout << A->data->name << " vs "<< B->data->name << std::endl;
+            if(Comparator(A->data, B->data)) {
+                // Меняем местами элементы при необходимости
+                animal *data = A->data;
+                A->data = B->data;
+                B->data = data;
+            }
+            B = B->next;
+        }
+        A = A->next;
+    }
+    std::cout << "Done!" << std::endl;
 }
