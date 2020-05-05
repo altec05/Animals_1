@@ -16,6 +16,8 @@ int main(int argc, char* argv[]) {
     ofstream ofst(argv[2]);
     // Вывод
     Out(ofst, Zoo);
+    Specific_Out(ofst, Zoo, enum_animal::FISH);
+    Specific_Out(ofst, Zoo, enum_animal::BIRD);
     // Очистка контейнера
     Clear(Zoo);
     return 0;

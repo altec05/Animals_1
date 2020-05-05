@@ -47,3 +47,19 @@ void Out(std::ofstream &ofs, cont &q) {
         A = A->next;
     }
 }
+
+void Specific_Out(std::ofstream &ofs, cont &q, enum_animal type) {
+    animal *A = q.first;
+    int index = 1;
+    ofs << "Ignoring type: " << type << std::endl;
+    for(int i = 0; i < q.size; i++) {
+        if(A->TYPE == type) {
+            A = A->next;
+            continue;
+        }
+        ofs << index << ". ";
+        OutA(ofs, A);
+        A = A->next;
+        index++;
+    }
+}

@@ -16,5 +16,6 @@ void Init(cont&q);
 void Add(animal*A, cont&q);
 void Read(std::ifstream& ifs, cont&q);
 void Out(std::ofstream& ofs, cont&q);
+void Specific_Out(std::ofstream& ofs, cont&q, enum_animal type);
 
 #endif //CONT_H
