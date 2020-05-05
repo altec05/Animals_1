@@ -15,6 +15,7 @@ struct fish {
     animal *prev; // Предыдущий  элемент
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
+    int age; // Возраст
     location living_place; // Локация
 };
 void ReadF(std::ifstream& ifs, fish *f);

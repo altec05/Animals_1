@@ -11,6 +11,7 @@ struct bird {
     animal *prev; // Предыдущий  элемент
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
+    int age; // Возраст
     bool is_migratory; // Перелетная ли птица
 };
 

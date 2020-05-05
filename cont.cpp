@@ -4,7 +4,11 @@
 void Read(std::ifstream &ifs, cont &q) {
     while(!ifs.eof()) { // Пока есть что считывать
         animal *A = ReadA(ifs); // Функция возвращает считанные данные
-        if(A==NULL) return;
+        if(A==NULL) {
+            Clear(q);
+            std::cout << "Error reading file structure.\n";
+            return;
+        }
         Add(A, q); // Сохраняем в контейнер
     }
 }

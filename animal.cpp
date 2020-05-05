@@ -5,7 +5,7 @@
 
 
 animal *ReadA(std::ifstream &ifs) {
-    int type;
+    int type, _age;
     ifs >> type;
     if(type < 0 || type > 1) {
         return NULL;
@@ -21,11 +21,15 @@ animal *ReadA(std::ifstream &ifs) {
             Read = (animal*)new bird;
             break;
     }
+    // Считываем возраст
+    if(!ifs.eof())
+        ifs >> _age;
     // Считываем имя
     if(!ifs.eof())
         ifs >> _name;
     else return NULL;
     Read->name = _name;
+    Read->age = _age;
     switch (type) {
         case enum_animal::FISH:
             // Считываем рыбу
@@ -44,6 +48,7 @@ animal *ReadA(std::ifstream &ifs) {
 
 void OutA(std::ofstream &ofs, animal *A) {
     ofs << "NAME: " << A->name << std::endl;
+    ofs << "AGE: " << A->age << std::endl;
     ofs << "ANIMAL: ";
     switch (A->TYPE) {
         case enum_animal::FISH:
