@@ -10,6 +10,7 @@
 enum enum_animal {
     FISH,
     BIRD,
+    COMMON_ANIMAL
 };
 
 // Животные
