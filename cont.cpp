@@ -58,11 +58,11 @@ void Out(std::ofstream &ofs, cont &q) {
 void Sort(cont &q) {
     node *A = q.first;
     std::cout << "Sorting in progress..." << std::endl;
-    for(int i = 0; i < q.size-1; i++) {
+    for (int i = 0; i < q.size - 1; i++) {
         node *B = A->next;
-        for(int j = 0; j < q.size-1-i; j++) {
-            std::cout << A->data->name << " vs "<< B->data->name << std::endl;
-            if(Comparator(A->data, B->data)) {
+        for (int j = 0; j < q.size - 1 - i; j++) {
+            std::cout << A->data->name << " vs " << B->data->name << std::endl;
+            if (Comparator(A->data, B->data)) {
                 // Меняем местами элементы при необходимости
                 animal *data = A->data;
                 A->data = B->data;
@@ -73,4 +73,20 @@ void Sort(cont &q) {
         A = A->next;
     }
     std::cout << "Done!" << std::endl;
+}
+
+void Specific_Out(std::ofstream &ofs, cont &q, enum_animal type) {
+    node *A = q.first;
+    int index = 1;
+    ofs << "Ignoring type: " << type << std::endl;
+    for(int i = 0; i < q.size; i++) {
+        if(A->data->TYPE == type) {
+            A = A->next;
+            continue;
+        }
+        ofs << index << ". ";
+        OutA(ofs, A->data);
+        A = A->next;
+        index++;
+    }
 }

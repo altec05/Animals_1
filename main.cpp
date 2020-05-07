@@ -18,6 +18,8 @@ int main(int argc, char* argv[]) {
     Sort(Zoo);
     ofst << "Sorted\n";
     Out(ofst, Zoo);
+    Specific_Out(ofst, Zoo, enum_animal::FISH);
+    Specific_Out(ofst, Zoo, enum_animal::BIRD);
     // Очистка контейнера
     Clear(Zoo);
     return 0;
