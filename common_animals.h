@@ -11,10 +11,9 @@ enum type {
 };
 
 struct common_animal {
-    animal *next; // Последующий элемент
-    animal *prev; // Предыдущий  элемент
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
+    int age; // Возраст
     type living_place;
 };
 

@@ -17,6 +17,7 @@ enum enum_animal {
 struct animal {
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
+    int age; // Возраст
 };
 
 int nameLength(animal*an);
