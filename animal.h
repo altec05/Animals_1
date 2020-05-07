@@ -15,14 +15,13 @@ enum enum_animal {
 
 // Животные
 struct animal {
-    animal *next; // Последующий элемент
-    animal *prev; // Предыдущий  элемент
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
 };
 
-int nameLength(animal* an);
+int nameLength(animal*an);
 animal* ReadA(std::ifstream&ifs);
 void OutA(std::ofstream& ofs, animal*A);
+bool Comparator(animal*f, animal*s);
 
 #endif //ANIMAL_H

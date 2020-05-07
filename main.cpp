@@ -1,5 +1,4 @@
 #include "cont.h"
-
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -14,7 +13,10 @@ int main(int argc, char* argv[]) {
     // Считывание
     Read(ifst, Zoo);
     ofstream ofst(argv[2]);
-    // Вывод
+    // Вывод + вывод сортированного
+    Out(ofst, Zoo);
+    Sort(Zoo);
+    ofst << "Sorted\n";
     Out(ofst, Zoo);
     // Очистка контейнера
     Clear(Zoo);
