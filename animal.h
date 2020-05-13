@@ -6,6 +6,7 @@
 #include <fstream>
 #include "string"
 
+
 // Перечисляемый тип - тип животного
 enum enum_animal {
     FISH,

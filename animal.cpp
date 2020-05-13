@@ -4,7 +4,6 @@
 #include "bird.h"
 #include "common_animals.h"
 
-
 animal *ReadA(std::ifstream &ifs) {
     int type, _age;
     ifs >> type;
