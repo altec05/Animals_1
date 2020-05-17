@@ -148,7 +148,7 @@ DefaultValue<T>::Set(value);
 DefaultValue<T>::SetFactory(&MakeT);
 // ... use the mocks ...
 // Resets the default value.
-DefaultValue<T>::Clear();
+DefaultValue<T>::clear();
 ```
 
 Example usage:
@@ -171,7 +171,7 @@ Example usage:
 
   // Resets the default action for return type std::unique_ptr<Buzz>,
   // to avoid interfere with other tests.
-  DefaultValue<std::unique_ptr<Buzz>>::Clear();
+  DefaultValue<std::unique_ptr<Buzz>>::clear();
 ```
 
 To customize the default action for a particular method of a specific mock

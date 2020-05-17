@@ -2039,7 +2039,7 @@ inline int IsATTY(int fd) {
 
 GTEST_DISABLE_MSC_DEPRECATED_PUSH_()
 
-// ChDir(), FReopen(), FDOpen(), Read(), Write(), Close(), and
+// ChDir(), FReopen(), FDOpen(), read(), Write(), Close(), and
 // StrError() aren't needed on Windows CE at this time and thus not
 // defined there.
 

@@ -4,7 +4,7 @@
 #include "bird.h"
 #include "common_animals.h"
 
-animal *ReadA(std::ifstream &ifs) {
+animal *readA(std::ifstream &ifs) {
     int type, _age;
     ifs >> type;
     if(type < 0 || type > 2) {
@@ -15,13 +15,13 @@ animal *ReadA(std::ifstream &ifs) {
     std::string _name;
     Read = NULL;
     switch (type) {
-        case enum_animal::FISH:
+        case enumAnimal::FISH:
             Read = (animal*)new fish;
             break;
-        case enum_animal::BIRD:
+        case enumAnimal::BIRD:
             Read = (animal*)new bird;
             break;
-        case enum_animal::COMMON_ANIMAL:
+        case enumAnimal::COMMON_ANIMAL:
             Read = (animal*)new common_animal;
             break;
     }
@@ -39,54 +39,54 @@ animal *ReadA(std::ifstream &ifs) {
     Read->name = _name;
     Read->age = _age;
     switch (type) {
-        case enum_animal::FISH:
+        case enumAnimal::FISH:
             // Считываем рыбу
-            if(!ReadF(ifs, (fish*)Read))
+            if(!readF(ifs, (fish *) Read))
                 return nullptr;
-            Read->TYPE = enum_animal::FISH;
+            Read->TYPE = enumAnimal::FISH;
             break;
-        case enum_animal::BIRD:
+        case enumAnimal::BIRD:
             // Считываем птицу
-            if(!ReadB(ifs, (bird*)Read))
+            if(!readB(ifs, (bird *) Read))
                 return nullptr;
-            Read->TYPE = enum_animal::BIRD;
+            Read->TYPE = enumAnimal::BIRD;
             break;
-        case enum_animal::COMMON_ANIMAL:
+        case enumAnimal::COMMON_ANIMAL:
             // Считываем птицу
-            if(!ReadCM(ifs, (common_animal*)Read))
+            if(!readCM(ifs, (common_animal *) Read))
                 return nullptr;
-            Read->TYPE = enum_animal::COMMON_ANIMAL;
+            Read->TYPE = enumAnimal::COMMON_ANIMAL;
             break;
     }
 
     return Read;
 }
 
-void OutA(std::ofstream &ofs, animal *A) {
+void outA(std::ofstream &ofs, animal *A) {
     ofs << "NAME: " << A->name << std::endl;
-    ofs << "NAME LENGTH: " << nameLength(A) << std::endl;
+    ofs << "NAME LENGTH: " << name_length(A) << std::endl;
     ofs << "AGE: " << A->age << std::endl;
     ofs << "ANIMAL: ";
     switch (A->TYPE) {
-        case enum_animal::FISH:
+        case enumAnimal::FISH:
             ofs << "FISH\n";
-            OutF(ofs, (fish*)A);
+            outF(ofs, (fish *) A);
             break;
-        case enum_animal::BIRD:
+        case enumAnimal::BIRD:
             ofs << "BIRD\n";
-            OutB(ofs, (bird*)A);
+            outB(ofs, (bird *) A);
             break;
-        case enum_animal::COMMON_ANIMAL:
+        case enumAnimal::COMMON_ANIMAL:
             ofs << "COMMON ANIMAL\n";
-            OutCM(ofs, (common_animal*)A);
+            outCM(ofs, (common_animal *) A);
             break;
     }
 }
 
-int nameLength(animal*an) {
+int name_length(animal*an) {
     return an->name.length();
 }
 
-bool Comparator(animal *f, animal *s) {
-    return nameLength(f) < nameLength(s);
+bool comparator(animal *f, animal *s) {
+    return name_length(f) < name_length(s);
 }

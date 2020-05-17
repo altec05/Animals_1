@@ -492,7 +492,7 @@ void DeathTestImpl::ReadAndInterpretStatusByte() {
                           << static_cast<unsigned int>(flag) << ")";
     }
   } else {
-    GTEST_LOG_(FATAL) << "Read from death test child process failed: "
+    GTEST_LOG_(FATAL) << "read from death test child process failed: "
                       << GetLastErrnoDescription();
   }
   GTEST_DEATH_TEST_CHECK_SYSCALL_(posix::Close(read_fd()));
@@ -925,7 +925,7 @@ int FuchsiaDeathTest::Wait() {
     } else if (packet.key == kSocketKey) {
       GTEST_DEATH_TEST_CHECK_(ZX_PKT_IS_SIGNAL_ONE(packet.type));
       if (packet.signal.observed & ZX_SOCKET_READABLE) {
-        // Read data from the socket.
+        // read data from the socket.
         constexpr size_t kBufferSize = 1024;
         do {
           size_t old_length = captured_stderr_.length();
@@ -1424,7 +1424,7 @@ DeathTest::TestRole ExecDeathTest::AssumeRole() {
 
   int pipe_fd[2];
   GTEST_DEATH_TEST_CHECK_(pipe(pipe_fd) != -1);
-  // Clear the close-on-exec flag on the write end of the pipe, lest
+  // clear the close-on-exec flag on the write end of the pipe, lest
   // it be closed when the child process does an exec:
   GTEST_DEATH_TEST_CHECK_(fcntl(pipe_fd[1], F_SETFD, 0) != -1);
 

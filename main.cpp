@@ -14,17 +14,17 @@ int main(int argc, char* argv[]) {
     }
     // Контейнер с животными
     cont Zoo;
-    Init(Zoo);
+    init(Zoo);
     // Считывание
-    Read(ifst, Zoo);
+    read(ifst, Zoo);
     // Вывод + вывод сортированного
-    Out(ofst, Zoo);
-    Sort(Zoo);
+    out(ofst, Zoo);
+    sort(Zoo);
     ofst << "Sorted\n";
-    Out(ofst, Zoo);
-    Specific_Out(ofst, Zoo, enum_animal::FISH);
-    Specific_Out(ofst, Zoo, enum_animal::BIRD);
+    out(ofst, Zoo);
+    specificOut(ofst, Zoo, enumAnimal::FISH);
+    specificOut(ofst, Zoo, enumAnimal::BIRD);
     // Очистка контейнера
-    Clear(Zoo);
+    clear(Zoo);
     return 0;
 }

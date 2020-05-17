@@ -17,12 +17,12 @@ struct cont {
     int size; // Размер контейнера
 };
 
-void Clear(cont&q);
-void Init(cont&q);
-void Add(node*A, cont&q);
-void Read(std::ifstream& ifs, cont&q);
-void Out(std::ofstream& ofs, cont&q);
-void Sort(cont&q);
-void Specific_Out(std::ofstream& ofs, cont&q, enum_animal type);
+void clear(cont&q);
+void init(cont&q);
+void add(node*A, cont&q);
+void read(std::ifstream& ifs, cont&q);
+void out(std::ofstream& ofs, cont&q);
+void sort(cont&q);
+void specificOut(std::ofstream& ofs, cont&q, enumAnimal type);
 
 #endif //CONT_H

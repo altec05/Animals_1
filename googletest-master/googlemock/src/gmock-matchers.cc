@@ -195,7 +195,7 @@ class MaxBipartiteMatchState {
       // along that path and call ourselves recursively to see if this
       // ultimately leads to sink.
       if (right_[irhs] == kUnused || TryAugment(right_[irhs], seen)) {
-        // Add flow from left_[ilhs] to right_[irhs].
+        // add flow from left_[ilhs] to right_[irhs].
         left_[ilhs] = irhs;
         right_[irhs] = ilhs;
         return true;

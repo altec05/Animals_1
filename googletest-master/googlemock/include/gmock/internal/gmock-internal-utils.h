@@ -410,7 +410,7 @@ struct RemoveConstFromKey<std::pair<const K, V> > {
   typedef std::pair<K, V> type;
 };
 
-// Emit an assertion failure due to incorrect DoDefault() usage. Out-of-lined to
+// Emit an assertion failure due to incorrect DoDefault() usage. out-of-lined to
 // reduce code size.
 GTEST_API_ void IllegalDoDefault(const char* file, int line);
 

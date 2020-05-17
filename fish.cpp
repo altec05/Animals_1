@@ -1,7 +1,7 @@
 
 #include "fish.h"
 
-bool ReadF(std::ifstream &ifs, fish*f) {
+bool readF(std::ifstream &ifs, fish*f) {
     int int_location;
     if(!ifs.is_open()) return false;
     ifs >> int_location;
@@ -10,7 +10,7 @@ bool ReadF(std::ifstream &ifs, fish*f) {
     return true;
 }
 
-void OutF(std::ofstream &ofs, fish *f) {
+void outF(std::ofstream &ofs, fish *f) {
     ofs << "Location: ";
     switch (f->living_place) {
         case location::lake:

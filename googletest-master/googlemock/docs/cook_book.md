@@ -120,8 +120,8 @@ class Foo {
   virtual ~Foo();
 
   // Overloaded on the types and/or numbers of arguments.
-  virtual int Add(Element x);
-  virtual int Add(int times, Element x);
+  virtual int add(Element x);
+  virtual int add(int times, Element x);
 
   // Overloaded on the const-ness of this object.
   virtual Bar& GetBar();
@@ -130,8 +130,8 @@ class Foo {
 
 class MockFoo : public Foo {
   ...
-  MOCK_METHOD(int, Add, (Element x), (override));
-  MOCK_METHOD(int, Add, (int times, Element x), (override));
+  MOCK_METHOD(int, add, (Element x), (override));
+  MOCK_METHOD(int, add, (int times, Element x), (override));
 
   MOCK_METHOD(Bar&, GetBar, (), (override));
   MOCK_METHOD(const Bar&, GetBar, (), (const, override));
@@ -145,9 +145,9 @@ fix that, use `using` to bring them in scope:
 ```cpp
 class MockFoo : public Foo {
   ...
-  using Foo::Add;
-  MOCK_METHOD(int, Add, (Element x), (override));
-  // We don't want to mock int Add(int times, Element x);
+  using Foo::add;
+  MOCK_METHOD(int, add, (Element x), (override));
+  // We don't want to mock int add(int times, Element x);
   ...
 };
 ```
@@ -2125,12 +2125,12 @@ class MockFoo : public Foo {
   foo.CalculateBar();  // This should return default_bar.
 
   // Unsets the default return value.
-  DefaultValue<Bar>::Clear();
+  DefaultValue<Bar>::clear();
 ```
 
 Please note that changing the default value for a type can make you tests hard
 to understand. We recommend you to use this feature judiciously. For example,
-you may want to make sure the `Set()` and `Clear()` calls are right next to the
+you may want to make sure the `Set()` and `clear()` calls are right next to the
 code that uses your mock.
 
 ### Setting the Default Actions for a Mock Method
@@ -3071,7 +3071,7 @@ destructor, like this:
 ```cpp
 class MockFoo : public Foo {
   ...
-  // Add the following two lines to the mock class.
+  // add the following two lines to the mock class.
   MOCK_METHOD(void, Die, ());
   virtual ~MockFoo() { Die(); }
 };
@@ -3892,14 +3892,14 @@ ACTION_P(name, param) { statements; }
 For example,
 
 ```cpp
-ACTION_P(Add, n) { return arg0 + n; }
+ACTION_P(add, n) { return arg0 + n; }
 ```
 
 will allow you to write
 
 ```cpp
 // Returns argument #0 + 5.
-... WillOnce(Add(5));
+... WillOnce(add(5));
 ```
 
 For convenience, we use the term *arguments* for the values used to invoke the
@@ -3909,7 +3909,7 @@ action.
 Note that you don't need to provide the type of the parameter either. Suppose
 the parameter is named `param`, you can also use the gMock-defined symbol
 `param_type` to refer to the type of the parameter as inferred by the compiler.
-For example, in the body of `ACTION_P(Add, n)` above, you can write `n_type` for
+For example, in the body of `ACTION_P(add, n)` above, you can write `n_type` for
 the type of `n`.
 
 gMock also provides `ACTION_P2`, `ACTION_P3`, and etc to support multi-parameter

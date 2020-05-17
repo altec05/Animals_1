@@ -391,7 +391,7 @@ using ::testing::StartsWith;
     EXPECT_THAT(Foo(), StartsWith("Hello"));
 ```
 
-Read this
+read this
 [recipe](../../googlemock/docs/cook_book.md#using-matchers-in-googletest-assertions)
 in the gMock Cookbook for more details.
 

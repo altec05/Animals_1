@@ -1,7 +1,7 @@
 
 #include "bird.h"
 
-bool ReadB(std::ifstream &ifs, bird*b) {
+bool readB(std::ifstream &ifs, bird*b) {
     std::string _s;
     if(!ifs.is_open()) return false;
     ifs >> _s;
@@ -12,6 +12,6 @@ bool ReadB(std::ifstream &ifs, bird*b) {
     return true;
 }
 
-void OutB(std::ofstream &stream, bird *b) {
-    stream << "Is migratory: " << (b->is_migratory ? "true" : "false") << std::endl;
+void outB(std::ofstream &ofs, bird *b) {
+    ofs << "Is migratory: " << (b->is_migratory ? "true" : "false") << std::endl;
 }

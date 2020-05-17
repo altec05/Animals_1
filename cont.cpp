@@ -1,21 +1,21 @@
 
 #include "cont.h"
 
-void Read(std::ifstream &ifs, cont &q) {
+void read(std::ifstream &ifs, cont &q) {
     while(!ifs.eof()) { // Пока есть что считывать
-        animal *A = ReadA(ifs); // Функция возвращает считанные данные
+        animal *A = readA(ifs); // Функция возвращает считанные данные
         if(A==NULL) {
-            Clear(q);
+            clear(q);
             std::cout << "Error reading file structure.\n";
             return;
         }
         node *N = new node;
         N->data = A;
-        Add(N, q); // Сохраняем в контейнер
+        add(N, q); // Сохраняем в контейнер
     }
 }
 
-void Add(node *A, cont&q) {
+void add(node *A, cont&q) {
     q.size++;
     if(q.first == nullptr) { // Если контейнер пуст
         q.first = A;
@@ -30,12 +30,12 @@ void Add(node *A, cont&q) {
     }
 }
 
-void Init(cont &cont) {
-    cont.first = NULL;
-    cont.size = 0;
+void init(cont &q) {
+    q.first = NULL;
+    q.size = 0;
 }
 
-void Clear(cont &q) {
+void clear(cont &q) {
     node *A = q.first;
     for(int i = 0; i < q.size; i++) {
         node *deleting = A;
@@ -46,23 +46,23 @@ void Clear(cont &q) {
     q.size = 0;
 }
 
-void Out(std::ofstream &ofs, cont &q) {
+void out(std::ofstream &ofs, cont &q) {
     node *A = q.first;
     for(int i = 1; i <= q.size; i++) {
         ofs << i << ". ";
-        OutA(ofs, A->data);
+        outA(ofs, A->data);
         A = A->next;
     }
 }
 
-void Sort(cont &q) {
+void sort(cont &q) {
     node *A = q.first;
     std::cout << "Sorting in progress..." << std::endl;
     for (int i = 0; i < q.size - 1; i++) {
         node *B = A->next;
         for (int j = 0; j < q.size - 1 - i; j++) {
             std::cout << A->data->name << " vs " << B->data->name << std::endl;
-            if (Comparator(A->data, B->data)) {
+            if (comparator(A->data, B->data)) {
                 // Меняем местами элементы при необходимости
                 animal *data = A->data;
                 A->data = B->data;
@@ -75,7 +75,7 @@ void Sort(cont &q) {
     std::cout << "Done!" << std::endl;
 }
 
-void Specific_Out(std::ofstream &ofs, cont &q, enum_animal type) {
+void specificOut(std::ofstream &ofs, cont &q, enumAnimal type) {
     node *A = q.first;
     int index = 1;
     ofs << "Ignoring type: " << type << std::endl;
@@ -85,7 +85,7 @@ void Specific_Out(std::ofstream &ofs, cont &q, enum_animal type) {
             continue;
         }
         ofs << index << ". ";
-        OutA(ofs, A->data);
+        outA(ofs, A->data);
         A = A->next;
         index++;
     }

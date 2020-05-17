@@ -11,12 +11,12 @@ enum location {
 };
 
 struct fish {
-    enum_animal TYPE; // Тип животного
+    enumAnimal TYPE; // Тип животного
     std::string name; // Имя животного
     int age; // Возраст
     location living_place; // Локация
 };
-bool ReadF(std::ifstream& ifs, fish *f);
-void OutF(std::ofstream& ofs, fish *f);
+bool readF(std::ifstream& ifs, fish *f);
+void outF(std::ofstream& ofs, fish *f);
 
 #endif //FISH_H

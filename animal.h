@@ -8,7 +8,7 @@
 
 
 // Перечисляемый тип - тип животного
-enum enum_animal {
+enum enumAnimal {
     FISH,
     BIRD,
     COMMON_ANIMAL
@@ -16,14 +16,14 @@ enum enum_animal {
 
 // Животные
 struct animal {
-    enum_animal TYPE; // Тип животного
+    enumAnimal TYPE; // Тип животного
     std::string name; // Имя животного
     int age; // Возраст
 };
 
-int nameLength(animal*an);
-animal* ReadA(std::ifstream&ifs);
-void OutA(std::ofstream& ofs, animal*A);
-bool Comparator(animal*f, animal*s);
+int name_length(animal*an);
+animal* readA(std::ifstream&ifs);
+void outA(std::ofstream& ofs, animal*A);
+bool comparator(animal*f, animal*s);
 
 #endif //ANIMAL_H
