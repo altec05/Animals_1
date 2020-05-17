@@ -13,7 +13,7 @@ struct bird {
     bool is_migratory; // Перелетная ли птица
 };
 
-void ReadB(std::ifstream& ifs, bird *b);
+bool ReadB(std::ifstream& ifs, bird *b);
 void OutB(std::ofstream& ofs, bird *b);
 
 #endif //BIRD_H

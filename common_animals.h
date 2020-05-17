@@ -17,7 +17,7 @@ struct common_animal {
     type living_place;
 };
 
-void ReadCM(std::ifstream& ifs, common_animal *f);
+bool ReadCM(std::ifstream& ifs, common_animal *f);
 void OutCM(std::ofstream& ofs, common_animal *f);
 
 #endif //COMMON_ANIMALS_H

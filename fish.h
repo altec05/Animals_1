@@ -16,7 +16,7 @@ struct fish {
     int age; // Возраст
     location living_place; // Локация
 };
-void ReadF(std::ifstream& ifs, fish *f);
+bool ReadF(std::ifstream& ifs, fish *f);
 void OutF(std::ofstream& ofs, fish *f);
 
 #endif //FISH_H

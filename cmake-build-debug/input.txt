@@ -1,0 +1,16 @@
+0
+13
+CLOWNFISH
+1
+1
+11
+CROW
+false
+1
+5
+FLAPPYBIRD
+true
+2
+42
+BEAR
+1

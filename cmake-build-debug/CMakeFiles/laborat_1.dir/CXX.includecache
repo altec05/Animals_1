@@ -1,0 +1,78 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.cpp
+animal.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+fish.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/fish.h
+bird.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/bird.h
+common_animals.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/common_animals.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+iostream
+-
+fstream
+-
+string
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/string
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/bird.cpp
+bird.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/bird.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/bird.h
+iostream
+-
+fstream
+-
+animal.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/common_animals.cpp
+common_animals.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/common_animals.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/common_animals.h
+iostream
+-
+fstream
+-
+animal.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/cont.cpp
+cont.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/cont.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/cont.h
+iostream
+-
+fstream
+-
+animal.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/fish.cpp
+fish.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/fish.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/fish.h
+iostream
+-
+fstream
+-
+animal.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/animal.h
+
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/main.cpp
+cont.h
+C:/Abc/docsx/3 course/tech_program/project_Kir/laborat_1/cont.h
+

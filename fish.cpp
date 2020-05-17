@@ -1,10 +1,13 @@
 
 #include "fish.h"
 
-void ReadF(std::ifstream &ifs, fish*f) {
+bool ReadF(std::ifstream &ifs, fish*f) {
     int int_location;
+    if(!ifs.is_open()) return false;
     ifs >> int_location;
+    if(ifs.fail()) return false;
     f->living_place = (location)int_location;
+    return true;
 }
 
 void OutF(std::ofstream &ofs, fish *f) {

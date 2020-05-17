@@ -10,6 +10,7 @@ animal *ReadA(std::ifstream &ifs) {
     if(type < 0 || type > 2) {
         return NULL;
     }
+    if(ifs.fail()) return false;
     animal* Read = NULL;
     std::string _name;
     Read = NULL;
@@ -27,26 +28,33 @@ animal *ReadA(std::ifstream &ifs) {
     // Считываем возраст
     if(!ifs.eof())
         ifs >> _age;
+    else return nullptr;
+    if(_age < 0) return nullptr;
+    if(ifs.fail()) return false;
     // Считываем имя
     if(!ifs.eof())
         ifs >> _name;
-    else return NULL;
+    else return nullptr;
+    if(ifs.fail()) return false;
     Read->name = _name;
     Read->age = _age;
     switch (type) {
         case enum_animal::FISH:
             // Считываем рыбу
-            ReadF(ifs, (fish*)Read);
+            if(!ReadF(ifs, (fish*)Read))
+                return nullptr;
             Read->TYPE = enum_animal::FISH;
             break;
         case enum_animal::BIRD:
             // Считываем птицу
-            ReadB(ifs, (bird*)Read);
+            if(!ReadB(ifs, (bird*)Read))
+                return nullptr;
             Read->TYPE = enum_animal::BIRD;
             break;
         case enum_animal::COMMON_ANIMAL:
             // Считываем птицу
-            ReadCM(ifs, (common_animal*)Read);
+            if(!ReadCM(ifs, (common_animal*)Read))
+                return nullptr;
             Read->TYPE = enum_animal::COMMON_ANIMAL;
             break;
     }

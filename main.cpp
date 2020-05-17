@@ -7,12 +7,16 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     ifstream ifst(argv[1]);
+    ofstream ofst(argv[2]);
+    // Проверка на отсутствие файла
+    if(!ifst.is_open() || !ofst.is_open()) {
+        cout << "File can't be opened." << endl;
+    }
     // Контейнер с животными
     cont Zoo;
     Init(Zoo);
     // Считывание
     Read(ifst, Zoo);
-    ofstream ofst(argv[2]);
     // Вывод + вывод сортированного
     Out(ofst, Zoo);
     Sort(Zoo);
