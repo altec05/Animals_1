@@ -4,12 +4,6 @@
 #include "bird.h"
 #include "common_animals.h"
 
-// Функционирование основных модулей программы:
-// 1. Ввод одного объекта
-// 2. Новые функции
-// 3. Сортировка
-// 4. Фильтрованный вывод
-
 int main() {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();
