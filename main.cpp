@@ -16,6 +16,7 @@ int main(int argc, char* argv[]) {
     ofstream ofst(argv[2]);
     // Вывод
     Out(ofst, Zoo);
+    Multi(Zoo, ofst);
     // Очистка контейнера
     Clear(Zoo);
     return 0;
