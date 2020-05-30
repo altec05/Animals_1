@@ -22,8 +22,7 @@ int main(int argc, char* argv[]) {
     sort(Zoo);
     ofst << "Sorted\n";
     out(ofst, Zoo);
-    specificOut(ofst, Zoo, enumAnimal::FISH);
-    specificOut(ofst, Zoo, enumAnimal::BIRD);
+    multi(Zoo, ofst);
     // Очистка контейнера
     clear(Zoo);
     return 0;

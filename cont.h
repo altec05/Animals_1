@@ -24,5 +24,6 @@ void read(std::ifstream& ifs, cont&q);
 void out(std::ofstream& ofs, cont&q);
 void sort(cont&q);
 void specificOut(std::ofstream& ofs, cont&q, enumAnimal type);
+void multi(cont &c, std::ofstream &ofstr);
 
 #endif //CONT_H
