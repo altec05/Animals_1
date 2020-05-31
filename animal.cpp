@@ -5,29 +5,29 @@
 #include "common_animals.h"
 
 animal *readA(std::ifstream &ifs) {
-    int type, _age;
+    int type, age;
     ifs >> type;
     if(type < 0 || type > 2) {
         return NULL;
     }
     if(ifs.fail()) return false;
-    animal* Read = NULL;
-    std::string _name;
+    animal* read = NULL;
+    std::string name;
     Read = NULL;
     switch (type) {
         case enumAnimal::FISH:
-            Read = (animal*)new fish;
+            read = (animal*)new fish;
             break;
         case enumAnimal::BIRD:
-            Read = (animal*)new bird;
+            read = (animal*)new bird;
             break;
         case enumAnimal::COMMON_ANIMAL:
-            Read = (animal*)new common_animal;
+            read = (animal*)new commonAnimal;
             break;
     }
     // Считываем возраст
     if(!ifs.eof())
-        ifs >> _age;
+        ifs >> age;
     else return nullptr;
     if(_age < 0) return nullptr;
     if(ifs.fail()) return false;
@@ -36,30 +36,30 @@ animal *readA(std::ifstream &ifs) {
         ifs >> _name;
     else return nullptr;
     if(ifs.fail()) return false;
-    Read->name = _name;
-    Read->age = _age;
+    read->name = name;
+    read->age = age;
     switch (type) {
         case enumAnimal::FISH:
             // Считываем рыбу
-            if(!readF(ifs, (fish *) Read))
+            if(!readF(ifs, (fish *) read))
                 return nullptr;
-            Read->TYPE = enumAnimal::FISH;
+            read->TYPE = enumAnimal::FISH;
             break;
         case enumAnimal::BIRD:
             // Считываем птицу
-            if(!readB(ifs, (bird *) Read))
+            if(!readB(ifs, (bird *) read))
                 return nullptr;
-            Read->TYPE = enumAnimal::BIRD;
+            read->TYPE = enumAnimal::BIRD;
             break;
         case enumAnimal::COMMON_ANIMAL:
             // Считываем птицу
-            if(!readCM(ifs, (common_animal *) Read))
+            if(!readCM(ifs, (commonAnimal *) read))
                 return nullptr;
-            Read->TYPE = enumAnimal::COMMON_ANIMAL;
+            read->TYPE = enumAnimal::COMMON_ANIMAL;
             break;
     }
 
-    return Read;
+    return read;
 }
 
 void outA(std::ofstream &ofs, animal *A) {
@@ -78,7 +78,7 @@ void outA(std::ofstream &ofs, animal *A) {
             break;
         case enumAnimal::COMMON_ANIMAL:
             ofs << "COMMON ANIMAL\n";
-            outCM(ofs, (common_animal *) A);
+            outCM(ofs, (commonAnimal *) A);
             break;
     }
 }
