@@ -1,7 +1,7 @@
 
 #include "common_animals.h"
 
-bool readCM(std::ifstream &ifs, common_animal*f) {
+bool readCM(std::ifstream &ifs, commonAnimal*f) {
     int int_location;
     if(!ifs.is_open()) return false;
     ifs >> int_location;
@@ -10,7 +10,7 @@ bool readCM(std::ifstream &ifs, common_animal*f) {
     return true;
 }
 
-void outCM(std::ofstream &ofs, common_animal *f) {
+void outCM(std::ofstream &ofs, commonAnimal *f) {
     ofs << "Type: ";
     switch (f->living_place) {
         case type::predator:
