@@ -10,7 +10,7 @@ enum type {
     predator, herbivorous, insectivorous
 };
 
-struct common_animal {
+struct commonAnimal {
     enumAnimal TYPE; // Тип животного
     std::string name; // Имя животного
     int age; // Возраст
