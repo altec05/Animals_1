@@ -13,17 +13,17 @@ int main(int argc, char* argv[]) {
         cout << "File can't be opened." << endl;
     }
     // Контейнер с животными
-    cont Zoo;
-    init(Zoo);
+    cont zoo;
+    init(zoo);
     // Считывание
-    read(ifst, Zoo);
+    read(ifst, zoo);
     // Вывод + вывод сортированного
-    out(ofst, Zoo);
-    sort(Zoo);
+    out(ofst, zoo);
+    sort(zoo);
     ofst << "Sorted\n";
-    out(ofst, Zoo);
-    multi(Zoo, ofst);
+    out(ofst, zoo);
+    multi(zoo, ofst);
     // Очистка контейнера
-    clear(Zoo);
+    clear(zoo);
     return 0;
 }
